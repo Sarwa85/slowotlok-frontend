@@ -1,0 +1,19 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{ sourceText }}</mat-card-title>
+        <mat-card-subtitle>
+            <b>Skuteczność:</b><span class="counter"> 78% </span>
+            <b>Ilość wyświetleń:</b><span class="counter"> 134 </span></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content *ngIf="checked"><h2>{{ translationText }}</h2></mat-card-content>
+    <mat-card-actions>
+        <span *ngIf="checked; then scoreControls else checkControls"></span>
+    </mat-card-actions>
+</mat-card>
+<ng-template #checkControls>
+    <button mat-flat-button color="primary" (click)="check()">Sprawdź</button>
+</ng-template>
+<ng-template #scoreControls>
+    <button mat-flat-button color="primary">+1</button>
+    <button mat-flat-button color="primary">-1</button>
+</ng-template>

@@ -1,0 +1,9 @@
+<!-- <mat-card> -->
+    <!-- <mat-card-title>{{ title }}</mat-card-title> -->
+    <card
+        *ngFor="let card of model"
+        [sourceText]=card.sourceText
+        [id]="card.id"
+        [translationText]="card.translationText"
+        ></card>
+<!-- </mat-card> -->

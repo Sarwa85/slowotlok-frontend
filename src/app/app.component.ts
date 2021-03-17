@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Słowotlok';
+  title = 'Słowotłok'
+  version = "0.0.0"
 }

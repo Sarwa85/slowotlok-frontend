@@ -8,20 +8,26 @@ import { CardsComponent } from './cards/cards.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button'; 
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatCardModule } from '@angular/material/card'; 
+import { MatCardModule } from '@angular/material/card';
+import { ToolbarComponent } from './toolbar/toolbar.component'; 
+import { MatToolbarModule } from '@angular/material/toolbar'; 
+import { MatIconModule } from '@angular/material/icon'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
-    CardsComponent
+    CardsComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatCardModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [
     CardsService

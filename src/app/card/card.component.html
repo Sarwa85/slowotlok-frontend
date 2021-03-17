@@ -8,6 +8,9 @@
     <mat-card-content *ngIf="checked"><h2>{{ translationText }}</h2></mat-card-content>
     <mat-card-actions>
         <span *ngIf="checked; then scoreControls else checkControls"></span>
+        <span class="example-spacer"></span>
+        <button mat-flat-button color="accent">Edytuj</button>
+        <button mat-flat-button color="warn">Usuń</button>
     </mat-card-actions>
 </mat-card>
 <ng-template #checkControls>

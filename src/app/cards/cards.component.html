@@ -2,8 +2,9 @@
     <!-- <mat-card-title>{{ title }}</mat-card-title> -->
     <card
         *ngFor="let card of model"
-        [sourceText]=card.sourceText
+        [source]=card.source
         [id]="card.id"
-        [translationText]="card.translationText"
+        [tr]="card.tr"
+        (deleteEvent)='onNeedDelete($event);'
         ></card>
 <!-- </mat-card> -->

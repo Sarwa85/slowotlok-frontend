@@ -1,5 +1,5 @@
 export interface Card {
-    sourceText: string
-    translationText: string
+    source: string
+    tr: string
     id: number
 }

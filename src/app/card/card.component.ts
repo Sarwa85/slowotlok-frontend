@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'card',
@@ -7,8 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CardComponent implements OnInit {
   @Input() id: number
-  @Input() sourceText: string
-  @Input() translationText: string
+  @Input() source: string
+  @Input() tr: string
+  @Output() deleteEvent: EventEmitter<number>  = new EventEmitter<number>();
   checked = false
 
   ngOnInit(): void {
@@ -17,5 +18,10 @@ export class CardComponent implements OnInit {
 
   check() {
     this.checked = true
+  }
+
+  needDelete() {
+    console.log("needDelete " + this.id + " " + this.source + " " + this.tr)
+    this.deleteEvent.emit(this.id)
   }
 }

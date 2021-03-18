@@ -1,4 +1,5 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* @import "~@angular/material/prebuilt-themes/deeppurple-amber.css" */
 
 /* body {
   margin: 50px;
@@ -13,17 +14,18 @@ cards {
   gap: 10px;
 }
 
-card {
-  margin: 10px;
-  padding: 10px;
-  display: block;
-  border: 1px solid red;
-  /* flex-direction: column; */
-}
-
 .counter {
   color:indianred;
 }
+
+.counter-good {
+  color:green;
+}
+
+.counter-bad {
+  color:indianred;
+}
+
 
 .widget {
   padding: 10px;
@@ -45,7 +47,7 @@ card {
 } */
 
 button {
-  margin-left: 10px 
+  margin-left: 4px 
 }
 
 button.first-row {
@@ -54,4 +56,10 @@ button.first-row {
 
 .example-spacer {
   flex: 1 1 auto;
+}
+
+.flow-row {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
 }

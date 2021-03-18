@@ -1,0 +1,11 @@
+<div>
+    <h2 mat-dialog-title>{{ data.title }}</h2>
+    <mat-dialog-content class="mat-typography">
+    {{ data.message }}
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button [mat-dialog-close]="false">Nie</button>
+      <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Tak</button>
+    </mat-dialog-actions>
+</div>
+

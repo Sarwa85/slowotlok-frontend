@@ -1,9 +1,9 @@
 import { CardsComponent } from './cards/cards.component';
 import { CardComponent } from './card/card.component';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Card } from './card'
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,19 @@ export class CardsService {
 
   constructor(private http: HttpClient) { }
 
-  getModelObserver(): Observable<Card[]> {
+  subjectModel: Subject<Card[]> = new Subject<Card[]>();
+
+  getModelObs(): Observable<Card[]> {
     return this.http.get<Card[]>(this._url)
+  }
+
+  pullModel() {
+    console.log("pullModel")
+    this.getModelObs()
+      .subscribe(data => {
+        console.log("pullModel sub")
+        this.subjectModel.next(data)
+      }
+      )
   }
 }

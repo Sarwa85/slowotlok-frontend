@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit, EventEmitter } from '@angular/core';
+import { CardsService } from './../cards.service';
 
 @Component({
   selector: 'toolbar',
@@ -8,9 +9,13 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ToolbarComponent implements OnInit {
   @Input() title: string
   @Input() version: string
-  constructor() { }
+  
+  constructor(private service: CardsService) { }
 
   ngOnInit(): void {
   }
 
+  needRefresh() {
+    this.service.pullModel()
+  }
 }

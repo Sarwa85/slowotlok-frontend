@@ -12,14 +12,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { ToolbarComponent } from './toolbar/toolbar.component'; 
 import { MatToolbarModule } from '@angular/material/toolbar'; 
-import { MatIconModule } from '@angular/material/icon'; 
+import { MatIconModule } from '@angular/material/icon';
+import { AskDialogComponent } from './askdialog/askdialog.component'; 
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardComponent,
     CardsComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    AskDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { MatIconModule } from '@angular/material/icon';
     FlexLayoutModule,
     MatToolbarModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
   providers: [
     CardsService

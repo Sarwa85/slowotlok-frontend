@@ -1,10 +1,9 @@
 <!-- <mat-card> -->
     <!-- <mat-card-title>{{ title }}</mat-card-title> -->
     <card
+        [class.mat-elevation-z2]=true
         *ngFor="let card of model"
-        [source]=card.source
-        [id]="card.id"
-        [tr]="card.tr"
+        [cardData]="card"
         (deleteEvent)='onNeedDelete($event);'
         ></card>
 <!-- </mat-card> -->

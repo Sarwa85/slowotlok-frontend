@@ -1,0 +1,5 @@
+[
+    {"id": 0, "sourceText": "cat", "translationText": "kot"},
+    {"id": 1, "sourceText": "dog", "translationText": "pies"},
+    {"id": 2, "sourceText": "sheep", "translationText": "owca"}
+]

@@ -15,19 +15,17 @@ export class CardsComponent implements OnInit {
 
   }
 
-  updateCards() {
-    this.service.getModelObserver()
-      .subscribe(data => this.model = data)
-  }
-
   onNeedDelete(id: number) {
     console.log("need to delete card " + id)
     this.model.forEach((element,index)=>{
-      if(element.id == id) this.model.splice(index,1);
+      if(element.id == id) 
+        this.model.splice(index,1);
    });
   }
 
   ngOnInit(): void {
-    this.updateCards();
+    this.service.subjectModel.subscribe(data => {
+      this.model = data
+    })
   }
 }

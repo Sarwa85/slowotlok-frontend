@@ -1,7 +1,9 @@
 import { Card } from './../card';
+import { CardsService } from './../cards.service';
 import { AskDialogComponent } from './../askdialog/askdialog.component';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'card',
@@ -13,8 +15,11 @@ export class CardComponent implements OnInit {
   @Output() deleteEvent: EventEmitter<number>  = new EventEmitter<number>();
   checked = false
   scored = false
+  busy = false
+  color: ThemePalette = 'primary';
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog,
+    private service: CardsService) {
 
   }
 
@@ -27,13 +32,23 @@ export class CardComponent implements OnInit {
   }
 
   score(good: boolean) {
+    let goodVal = 0
+    let badVal = 0
     if (good) {
-      this.cardData.good += 1
+      this.cardData.good = this.cardData.good + 1
+      goodVal = 1
     } else {
-      this.cardData.bad += 1
+      this.cardData.bad = this.cardData.bad + 1
+      badVal = 1
     }
-      
-    this.scored = true
+
+    this.busy = true
+    this.service.scoreCard({
+      card_id: this.cardData.id,
+      good: goodVal,
+      bad: badVal
+    })
+    // this.scored = true
   }
 
   needDelete() {

@@ -12,11 +12,14 @@
         <h2>
             <span *ngIf="checked; then trVisible else trHidden"></span>
         </h2>
+        
+
     </mat-card-content>
     <mat-card-actions class="flow-row">
         <!-- <h2 *ngIf="checked">{{ cardData.tr }}</h2> -->
         <span *ngIf="checked; then scoreControls else checkControls"></span>
         <span class="example-spacer"></span>
+        <mat-progress-bar *ngIf="busy" color="primary" mode="query"></mat-progress-bar>
         <button class="mat-elevation-z4" mat-flat-button color="accent">Edytuj</button>
         <button class="mat-elevation-z4" mat-flat-button color="warn" (click)="openDialog()">Usuń</button>
     </mat-card-actions>
@@ -36,3 +39,4 @@
     <button *ngIf="!scored" class="mat-elevation-z4" mat-flat-button color="primary" (click)="score(true)">+1</button>
     <button *ngIf="!scored" class="mat-elevation-z4" mat-flat-button color="primary" (click)="score(false)">-1</button>
 </ng-template>
+

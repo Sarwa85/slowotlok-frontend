@@ -5,19 +5,15 @@ import { CardsService } from './../cards.service';
 @Component({
   selector: 'toolbar',
   templateUrl: './toolbar.component.html',
-  styleUrls: ['./toolbar.component.css']
+  styleUrls: ['./toolbar.component.scss']
 })
 export class ToolbarComponent implements OnInit {
   @Input() title: string
   @Input() version: string
   isProd = environment.production
   
-  constructor(private service: CardsService) { }
+  constructor(public service: CardsService) { }
 
   ngOnInit(): void {
-  }
-
-  needRefresh() {
-    this.service.pullModel()
   }
 }

@@ -4,7 +4,7 @@ import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 @Component({
   selector: 'askdialog',
   templateUrl: './askdialog.component.html',
-  styleUrls: ['./askdialog.component.css']
+  styleUrls: ['./askdialog.component.scss']
 })
 export class AskDialogComponent implements OnInit {
 

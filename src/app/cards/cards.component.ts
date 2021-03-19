@@ -5,7 +5,7 @@ import { Card } from './../card'
 @Component({
   selector: 'cards',
   templateUrl: './cards.component.html',
-  styleUrls: ['./cards.component.css']
+  styleUrls: ['./cards.component.scss']
 })
 export class CardsComponent implements OnInit {
   title = "Lista słów"

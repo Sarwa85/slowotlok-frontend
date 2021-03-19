@@ -1,0 +1,10 @@
+@import "../app.component.scss";
+@import '~@angular/material/theming';
+
+card {
+  @include mat-elevation(2);
+  
+  margin: 0px;
+  padding: 0px;
+  display: block;
+}

@@ -1,0 +1,20 @@
+<div>
+    <h2 mat-dialog-title>Nowe hasło</h2>
+    <mat-dialog-content class="mat-typography">
+
+        <mat-form-field appearance="fill" required="true">
+            <mat-label>Teskt źródłowy (EN)</mat-label>
+            <input [(ngModel)]="data.source" matInput>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Tłumaczenie (PL)</mat-label>
+            <input [(ngModel)]="data.tr" matInput>
+        </mat-form-field>
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button [mat-dialog-close]="null">Anuluj</button>
+        <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Tak</button>
+    </mat-dialog-actions>
+</div>

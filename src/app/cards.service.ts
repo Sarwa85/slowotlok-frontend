@@ -1,3 +1,4 @@
+import { AddCardRequest, AddCardResponse } from './addcard';
 import { ScoreCardRequest, ScoreCardResponse } from './scorecard';
 import { Injectable } from '@angular/core';
 import { GetCardResponse } from './card'
@@ -9,12 +10,10 @@ import { environment } from './../environments/environment';
   providedIn: 'root'
 })
 export class CardsService {
-  private _headers = ('Access-Control-Allow-Origin: *')
-
-  // private _url = "/assets/data/cards.json"
   private _baseUrl = environment.apiUrl + ":" + environment.apiPort
   private _urlRandomCards = this._baseUrl + "/card/random/10"
   private _urlScorePost = this._baseUrl + "/score/add"
+  private _urlAddCard = this._baseUrl + "/card"
 
   constructor(private http: HttpClient) { }
 
@@ -29,6 +28,10 @@ export class CardsService {
     return this.http.post<ScoreCardResponse>(this._urlScorePost, req)
   }
 
+  getAddCardObs(req: AddCardRequest): Observable<AddCardResponse> {
+    return this.http.post<AddCardResponse>(this._urlAddCard, req)
+  }
+
   pullModel() {
     console.log("pullModel")
     this.getModelObs()
@@ -38,18 +41,4 @@ export class CardsService {
       }
       )
   }
- 
-  // scoreCard(req: ScoreCardRequest) {
-  //   console.log("Ustawiam: " + JSON.stringify(req))
-  //   this.getScoreObs(req)
-  //     .subscribe({
-  //       next: async res => {
-  //         await this.delay(5000);
-  //         console.log("scoreCard: " + JSON.stringify(res))
-  //       },
-  //       error: error => {
-  //         console.error('There was an error!', error);
-  //     }
-  //     })
-  // }
 }

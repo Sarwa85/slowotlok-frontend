@@ -4,12 +4,12 @@
 
         <mat-form-field appearance="fill" required="true">
             <mat-label>Teskt źródłowy (EN)</mat-label>
-            <input [(ngModel)]="data.source" matInput>
+            <input [(ngModel)]="data.source" matInput autocomplete="off">
         </mat-form-field>
 
         <mat-form-field appearance="fill">
             <mat-label>Tłumaczenie (PL)</mat-label>
-            <input [(ngModel)]="data.tr" matInput>
+            <input [(ngModel)]="data.tr" matInput autocomplete="off">
         </mat-form-field>
 
     </mat-dialog-content>

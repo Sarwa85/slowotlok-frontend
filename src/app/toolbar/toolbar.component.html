@@ -6,10 +6,10 @@
    <span>{{ title }} - {{ version }}</span>
    <span *ngIf="!isProd">dev</span>
    <span class="example-spacer"></span>
-   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+   <button mat-icon-button class="example-icon">
     <mat-icon (click)="service.pullModel()">refresh</mat-icon>
   </button>
-   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+   <button mat-icon-button class="example-icon">
     <mat-icon (click)="openAddCardDialog()">add</mat-icon>
   </button>
  </mat-toolbar>

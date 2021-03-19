@@ -1,6 +1,6 @@
 import { ScoreCardRequest, ScoreCardResponse } from './scorecard';
 import { Injectable } from '@angular/core';
-import { Card } from './card'
+import { GetCardResponse } from './card'
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { environment } from './../environments/environment';
@@ -16,15 +16,13 @@ export class CardsService {
   private _urlRandomCards = this._baseUrl + "/card/random/10"
   private _urlScorePost = this._baseUrl + "/score/add"
 
-  delay = ms => new Promise(res => setTimeout(res, ms));
-
   constructor(private http: HttpClient) { }
 
-  subjectModel: Subject<Card[]> = new Subject<Card[]>()
+  subjectModel: Subject<GetCardResponse[]> = new Subject<GetCardResponse[]>()
   subcjecScore: Subject<ScoreCardResponse> = new Subject<ScoreCardResponse>()
 
-  getModelObs(): Observable<Card[]> {
-    return this.http.get<Card[]>(this._urlRandomCards)
+  getModelObs(): Observable<GetCardResponse[]> {
+    return this.http.get<GetCardResponse[]>(this._urlRandomCards)
   }
 
   getScoreObs(req: ScoreCardRequest): Observable<ScoreCardResponse> {

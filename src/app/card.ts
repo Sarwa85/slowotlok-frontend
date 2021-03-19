@@ -1,4 +1,4 @@
-export interface Card {
+export interface GetCardResponse {
     source: string
     tr: string
     id: number

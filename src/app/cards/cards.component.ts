@@ -1,6 +1,6 @@
 import { CardsService } from './../cards.service';
 import { Component, OnInit } from '@angular/core';
-import { Card } from './../card'
+import { GetCardResponse } from './../card'
 
 @Component({
   selector: 'cards',
@@ -9,7 +9,7 @@ import { Card } from './../card'
 })
 export class CardsComponent implements OnInit {
   title = "Lista słów"
-  model: Card[] = []
+  model: GetCardResponse[] = []
 
   constructor(private service: CardsService) { 
 

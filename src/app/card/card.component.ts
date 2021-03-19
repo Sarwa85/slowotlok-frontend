@@ -35,19 +35,37 @@ export class CardComponent implements OnInit {
     let goodVal = 0
     let badVal = 0
     if (good) {
-      this.cardData.good = this.cardData.good + 1
       goodVal = 1
     } else {
-      this.cardData.bad = this.cardData.bad + 1
       badVal = 1
     }
 
     this.busy = true
-    this.service.scoreCard({
+    this.service.getScoreObs({
       card_id: this.cardData.id,
       good: goodVal,
       bad: badVal
     })
+    .subscribe({
+      next: async res => {
+        await this.service.delay(1000);
+        console.log("scoreCard: " + JSON.stringify(res))
+        if (this.cardData.id !== res.card_id) {
+          console.warn("Niepoprawne id")
+          return
+        }
+        this.cardData.good = res.good
+        this.cardData.bad = res.bad
+        this.busy = false
+      },
+      error: error => {
+        console.error('There was an error!', error);
+        this.busy = false
+    }
+    })
+
+    
+
     // this.scored = true
   }
 

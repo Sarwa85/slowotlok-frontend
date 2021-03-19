@@ -27,5 +27,6 @@ export class CardsComponent implements OnInit {
     this.service.subjectModel.subscribe(data => {
       this.model = data
     })
+    this.service.pullModel()
   }
 }

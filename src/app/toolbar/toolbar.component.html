@@ -4,6 +4,7 @@
      <mat-icon>menu</mat-icon>
    </button>
    <span>{{ title }} - {{ version }}</span>
+   <span *ngIf="!isProd">dev</span>
    <span class="example-spacer"></span>
    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
     <mat-icon (click)="needRefresh()">refresh</mat-icon>

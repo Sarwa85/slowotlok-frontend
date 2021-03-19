@@ -1,6 +1,13 @@
 <mat-card>
     <mat-card-header>
-        <mat-card-title>{{ cardData.source }}</mat-card-title>
+        <mat-card-title>
+            <span *ngIf="checked">
+                {{ cardData.source + " / " + cardData.tr}}
+            </span>
+            <span *ngIf="!checked">
+                {{ cardData.source }}
+            </span>
+        </mat-card-title>
         <mat-card-subtitle>
             <div class="flow-row">
                 <b>Poprawnie:</b><span class="counter-good">{{ cardData.good }}</span>
@@ -8,20 +15,16 @@
             </div>
         </mat-card-subtitle>
     </mat-card-header>
-    <mat-card-content>
-        <h2>
+    <!-- <mat-card-content>
             <span *ngIf="checked; then trVisible else trHidden"></span>
-        </h2>
-        
-
-    </mat-card-content>
+    </mat-card-content> -->
     <mat-card-actions class="flow-row">
         <!-- <h2 *ngIf="checked">{{ cardData.tr }}</h2> -->
         <span *ngIf="checked; then scoreControls else checkControls"></span>
         <span class="example-spacer"></span>
         <mat-progress-bar *ngIf="busy" color="primary" mode="query"></mat-progress-bar>
-        <button class="mat-elevation-z4" mat-flat-button color="accent">Edytuj</button>
-        <button class="mat-elevation-z4" mat-flat-button color="warn" (click)="openDialog()">Usuń</button>
+        <button [disabled]="busy" mat-button-button><mat-icon>edit</mat-icon></button>
+        <button [disabled]="busy" mat-button-button (click)="openDialog()"><mat-icon>delete</mat-icon></button>
     </mat-card-actions>
 </mat-card>
 
@@ -33,10 +36,15 @@
 </ng-template>
 
 <ng-template #checkControls>
-    <button class="mat-elevation-z4" mat-flat-button color="primary" (click)="check()">Sprawdź</button>
+    <button mat-button-button [disabled]="busy" (click)="check()">
+        <mat-icon>spellcheck</mat-icon>
+    </button>
 </ng-template>
 <ng-template #scoreControls>
-    <button *ngIf="!scored" class="mat-elevation-z4" mat-flat-button color="primary" (click)="score(true)">+1</button>
-    <button *ngIf="!scored" class="mat-elevation-z4" mat-flat-button color="primary" (click)="score(false)">-1</button>
+    <button *ngIf="!scored" [disabled]="busy" mat-button-button (click)="score(true)">
+        <mat-icon>thumb_up</mat-icon>
+    </button>
+    <button *ngIf="!scored" [disabled]="busy" mat-button-button (click)="score(false)">
+        <mat-icon>thumb_down</mat-icon>
+    </button>
 </ng-template>
-

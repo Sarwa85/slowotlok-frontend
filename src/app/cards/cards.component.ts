@@ -15,18 +15,27 @@ export class CardsComponent implements OnInit {
 
   }
 
-  onNeedDelete(id: number) {
-    console.log("need to delete card " + id)
-    this.model.forEach((element,index)=>{
-      if(element.id == id) 
-        this.model.splice(index,1);
-   });
+  ngOnInit(): void {
+    this.connectModel()
+    this.connectDelCard()
+
+    this.service.pullModel()
   }
 
-  ngOnInit(): void {
+  connectModel() {
     this.service.subjectModel.subscribe(data => {
       this.model = data
     })
     this.service.pullModel()
+  }
+
+  connectDelCard() {
+    this.service.subjectDelCard.subscribe(response => {
+      console.log("need to delete card " + response.removed)
+      this.model.forEach((element,index)=>{
+        if(element.id == response.removed) 
+          this.model.splice(index,1);
+     });
+    })
   }
 }

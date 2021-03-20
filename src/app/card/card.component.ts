@@ -65,12 +65,7 @@ export class CardComponent implements OnInit {
     // this.scored = true
   }
 
-  needDelete() {
-    console.log("needDelete " + this.cardData.id + " " + this.cardData.source + " " + this.cardData.tr)
-    this.deleteEvent.emit(this.cardData.id)
-  }
-
-  openDialog() {
+  openDelDialog() {
     console.log("open dialog")
     const dialogRef = this.dialog.open(AskDialogComponent, {
       data: {title: "Usuwanie", 
@@ -79,7 +74,7 @@ export class CardComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result)
-        this.needDelete()
+        this.service.delCard(this.cardData.id)
     });
   }
 }

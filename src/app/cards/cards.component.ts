@@ -25,6 +25,9 @@ export class CardsComponent implements OnInit {
   connectModel() {
     this.service.subjectModel.subscribe(data => {
       this.model = data
+      // todo: change this to signal -> slot
+      // Don't need state - model
+
     })
     this.service.pullModel()
   }

@@ -13,7 +13,7 @@ import { environment } from './../environments/environment';
 })
 export class CardsService {
   private _baseUrl = environment.apiUrl + ":" + environment.apiPort
-  private _urlRandomCards = this._baseUrl + "/card/random/10"
+  private _urlRandomCards = this._baseUrl + "/card?order=random&limit=10"
   private _urlScorePost = this._baseUrl + "/score/add"
   private _urlAddCard = this._baseUrl + "/card"
   private _urlDelCard = this._baseUrl + "/card"
